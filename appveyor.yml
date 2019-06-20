@@ -1,6 +1,7 @@
 
 environment:
   nodejs_version: 10
+  process.env.CI: false
 install:
 - cmd: >-
     npm install
