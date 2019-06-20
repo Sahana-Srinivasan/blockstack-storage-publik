@@ -7,4 +7,4 @@ install:
     npm install
 build_script:
 - cmd: >-
-    CI=false npm run build
+    npm run build

@@ -54,7 +54,7 @@ export default class Profile extends Component {
                   {this.isLocal() &&
                     <span>
                       &nbsp;|&nbsp;
-                      <a onClick={ handleSignOut.bind(this) }>(Logout)</a>
+                      <a onClick={ handleSignOut.bind(this) } href="/">(Logout)</a>
                     </span>
                   }
                 </div>
@@ -121,9 +121,9 @@ handleNewStatusSubmit(event) {
 saveNewStatus(statusText) {
   const { userSession } = this.props
   let statuses = this.state.statuses
-
+  const statusNo = this.state.statusIndex
   let status = {
-    id: this.state.statusIndex++,
+    id: statusNo + 1,
     text: statusText.trim(),
     created_at: Date.now()
   }
