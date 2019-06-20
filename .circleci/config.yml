@@ -10,7 +10,7 @@ jobs:
     working_directory: ~/repo
     branches:
       only:
-        - check
+        - master
     steps:
       - checkout
       - run:
@@ -23,8 +23,3 @@ jobs:
       - run:
           name: Copy of cors
           command: 'cp cors/_* build'
-workflows:
-version: 2
-build_and_test:
-  jobs:
-    - build
