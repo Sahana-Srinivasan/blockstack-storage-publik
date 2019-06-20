@@ -23,7 +23,7 @@ jobs:
           command: 'cp cors/_* build'
 workflows:
 version: 2
-  build-deploy:
+  build:
     jobs:
       - build:
           branches:
