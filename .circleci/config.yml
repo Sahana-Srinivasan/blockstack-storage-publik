@@ -24,4 +24,6 @@ jobs:
 workflows:
   build-deploy:
     jobs:
-      - build
+      - build:
+          branches:
+            - master
