@@ -3,23 +3,25 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2
+jobs:
+  build:
+    working_directory: ~/repo
+    branches:
+      only:
+        - master
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: npm install
+      # test
+      - run: 
+          name: Build application
+          command: CI=false npm run build
+      - run:
+          name: Copy of cors
+          command: 'cp cors/_* build'
 workflows:
   build-deploy:
     jobs:
-      build:
-        working_directory: ~/repo
-        branches:
-          only:
-            - master
-        steps:
-          - checkout
-          - run:
-              name: Install Dependencies
-              command: npm install
-          # test
-          - run: 
-              name: Build application
-              command: CI=false npm run build
-          - run:
-              name: Copy of cors
-              command: 'cp cors/_* build'
+      - build
